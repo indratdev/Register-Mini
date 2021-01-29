@@ -15,6 +15,15 @@ class ViewController: UIViewController {
         
     }
 
-
+    @IBAction func registerBtnPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "segueRegisterForm", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueRegisterForm" {
+            let rc = segue.destination
+        }
+    }
+    
 }
 
