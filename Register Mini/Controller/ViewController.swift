@@ -9,18 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController, RegisterProtokol {
-    func sendData(data: Register) {
-        print(data)
-    }
+    @IBOutlet weak var viewResult: UIView!
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var sexLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideResult()
     }
-
+    
     @IBAction func registerBtnPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "segueRegisterForm", sender: nil)
+        clearResult()
+        hideResult()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,5 +35,36 @@ class ViewController: UIViewController, RegisterProtokol {
         }
     }
     
+    
+    
+}
+
+
+extension ViewController {
+    func sendData(data: Register) {
+        displayResult(result: data)
+    }
+    
+    func displayResult(result: Register) {
+        firstNameLabel.text = "Your FirstName is \(result.firstName)"
+        lastNameLabel.text = "Your Lastname is \(result.lastName)"
+        ageLabel.text = "Your Age is \(result.age)"
+        sexLabel.text = "Your Sex is \(result.sex)"
+        addressLabel.text = "Your Address is \(result.address)"
+        
+        viewResult.isHidden = false
+    }
+    
+    func clearResult(){
+        firstNameLabel.text = ""
+        lastNameLabel.text = ""
+        ageLabel.text = ""
+        sexLabel.text = ""
+        addressLabel.text = ""
+    }
+    
+    func hideResult(){
+        viewResult.isHidden = true
+    }
 }
 
