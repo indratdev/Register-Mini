@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RegisterProtokol {
+    func sendData(data: Register) {
+        print(data)
+    }
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueRegisterForm" {
             guard let rc = segue.destination as? RegisterVC else {return}
+            rc.delegate = self
         }
     }
     

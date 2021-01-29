@@ -17,6 +17,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var womenSexBtn: UIButton!
     
     var sex: String?
+    var delegate: RegisterProtokol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,15 @@ class RegisterVC: UIViewController {
     
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
+        
+        if let fn = firstNameTF.text, let ln = lastNameTF.text, let age = ageTF.text, let address = addressTV.text, let sex = self.sex {
+            let data = Register(firstName: fn, lastName: ln, age: Int(age)!, sex: sex, address: address)
+            
+            delegate?.sendData(data: data)
+            navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        }
+        
         
     }
     
@@ -38,18 +48,6 @@ class RegisterVC: UIViewController {
             womenSexBtn.isSelected = true
             self.sex = womenSexBtn.currentTitle
         }
-        print("selected sex : \(self.sex)")
+        print("selected sex : \(self.sex ?? "null value")")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
