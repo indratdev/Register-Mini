@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueRegisterForm" {
-            let rc = segue.destination
+            guard let rc = segue.destination as? RegisterVC else {return}
         }
     }
     

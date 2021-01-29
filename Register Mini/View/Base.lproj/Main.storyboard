@@ -47,10 +47,29 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ore-3D-kYb"/>
+                    <connections>
+                        <segue destination="AvF-uH-QYd" kind="show" identifier="segueRegisterForm" id="ORZ-Qe-fw9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="100.44642857142857"/>
+        </scene>
+        <!--RegisterVC-->
+        <scene sceneID="sXa-OA-OwA">
+            <objects>
+                <viewController id="AvF-uH-QYd" customClass="RegisterVC" customModule="Register_Mini" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oiT-0a-IZf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HcC-wd-Kl4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ODE-f1-qXL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y1T-iB-Nba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2019" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oe0-zm-Dho">
