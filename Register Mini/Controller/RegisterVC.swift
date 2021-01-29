@@ -9,9 +9,36 @@
 import UIKit
 
 class RegisterVC: UIViewController {
-
+    @IBOutlet weak var firstNameTF: UITextField!
+    @IBOutlet weak var lastNameTF: UITextField!
+    @IBOutlet weak var ageTF: UITextField!
+    @IBOutlet weak var addressTV: UITextView!
+    @IBOutlet weak var menSexBtn: UIButton!
+    @IBOutlet weak var womenSexBtn: UIButton!
+    
+    var sex: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+    }
+    
+    
+    @IBAction func submitBtnPressed(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func sexBtnPressed(_ sender: UIButton) {
+        if sender.tag == 1 {
+            menSexBtn.isSelected = true
+            womenSexBtn.isSelected = false
+            self.sex = menSexBtn.currentTitle
+        } else {
+            menSexBtn.isSelected = false
+            womenSexBtn.isSelected = true
+            self.sex = womenSexBtn.currentTitle
+        }
+        print("selected sex : \(self.sex)")
     }
     
 
