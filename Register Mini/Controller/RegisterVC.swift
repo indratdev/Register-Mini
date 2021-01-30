@@ -21,7 +21,14 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        firstLoad()
+    }
+    
+    func firstLoad(){
+        ageTF.delegate = self
+        addressTV.delegate = self
+        addressTV.text = "Enter Your Address"
+        addressTV.textColor = UIColor.lightGray
     }
     
     
@@ -49,5 +56,32 @@ class RegisterVC: UIViewController {
             self.sex = womenSexBtn.currentTitle
         }
         print("selected sex : \(self.sex ?? "null value")")
+    }
+}
+
+extension RegisterVC: UITextFieldDelegate, UITextViewDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == ageTF {
+            let allowedCharacters = CharacterSet(charactersIn: "0123456789") // disini yang diperbolehkan
+            let charackterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: charackterSet)
+        }
+        
+        return true
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if addressTV.textColor == UIColor.lightGray {
+            addressTV.text = nil
+            addressTV.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if addressTV.text.isEmpty {
+            addressTV.text = "Placeholder"
+            addressTV.textColor = UIColor.lightGray
+        }
     }
 }
