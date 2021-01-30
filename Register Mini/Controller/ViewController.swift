@@ -45,7 +45,7 @@ extension ViewController {
         displayResult(result: data)
     }
     
-    func displayResult(result: Register) {
+    private func displayResult(result: Register) {
         firstNameLabel.text = "Your FirstName is \(result.firstName)"
         lastNameLabel.text = "Your Lastname is \(result.lastName)"
         ageLabel.text = "Your Age is \(result.age)"
@@ -55,7 +55,7 @@ extension ViewController {
         viewResult.isHidden = false
     }
     
-    func clearResult(){
+    private func clearResult(){
         firstNameLabel.text = ""
         lastNameLabel.text = ""
         ageLabel.text = ""
@@ -63,7 +63,7 @@ extension ViewController {
         addressLabel.text = ""
     }
     
-    func hideResult(){
+    private func hideResult(){
         viewResult.isHidden = true
     }
 }

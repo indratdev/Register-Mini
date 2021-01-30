@@ -27,8 +27,8 @@ class RegisterVC: UIViewController {
     
     @IBAction func submitBtnPressed(_ sender: UIButton) {
         
-        if let fn = firstNameTF.text, let ln = lastNameTF.text, let age = ageTF.text, let address = addressTV.text, let sex = self.sex {
-            let data = Register(firstName: fn, lastName: ln, age: Int(age)!, sex: sex, address: address)
+        if let fn = firstNameTF.text, let ln = lastNameTF.text, let age = ageTF.text, let address1 = addressTV.text, let sex = self.sex {
+            let data = Register(firstName: fn, lastName: ln, age: Int(age) ?? 0, sex: sex, address: address1)
             
             delegate?.sendData(data: data)
             navigationController?.popViewController(animated: true)
