@@ -31,18 +31,13 @@ class RegisterVC: UIViewController {
         addressTV.textColor = UIColor.lightGray
     }
     
-    
     @IBAction func submitBtnPressed(_ sender: UIButton) {
-        
         if let fn = firstNameTF.text, let ln = lastNameTF.text, let age = ageTF.text, let address1 = addressTV.text, let sex = self.sex {
             let data = Register(firstName: fn, lastName: ln, age: Int(age) ?? 0, sex: sex, address: address1)
-            
             delegate?.sendData(data: data)
             navigationController?.popViewController(animated: true)
             dismiss(animated: true, completion: nil)
         }
-        
-        
     }
     
     @IBAction func sexBtnPressed(_ sender: UIButton) {
@@ -60,14 +55,12 @@ class RegisterVC: UIViewController {
 }
 
 extension RegisterVC: UITextFieldDelegate, UITextViewDelegate {
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == ageTF {
             let allowedCharacters = CharacterSet(charactersIn: "0123456789") // disini yang diperbolehkan
             let charackterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: charackterSet)
         }
-        
         return true
     }
     
@@ -84,4 +77,5 @@ extension RegisterVC: UITextFieldDelegate, UITextViewDelegate {
             addressTV.textColor = UIColor.lightGray
         }
     }
+    
 }
